@@ -1,8 +1,7 @@
 ---
 title: vue记录
 date: 2019-10-30 18:05:43
-tags:
- - vue
+tags: vue
 ---
 
 记录平时遇到的问题
@@ -14,3 +13,5 @@ tags:
 ```
 mode:'items[index]' 这么替换后就可正常输入
 ```
+
+## 
