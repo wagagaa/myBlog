@@ -14,4 +14,9 @@ tags: vue
 mode:'items[index]' 这么替换后就可正常输入
 ```
 
-## 
+ ## resetFields清除表单数据
+ ```
+ this.$refs[formName].resetFields();
+ form表单设置 -- ref="formList"
+ el-form-item上设置prop字段 -- prop="xxxx"
+ ```
