@@ -6,7 +6,12 @@ tags:
   - vuex
 ---
 
+自己看
+
+<!-- more -->
+
 ## vuex解决的问题
+
 + vue中各个组件之间传值太痛苦，在vue中我们可以使用vuex来保存我们需要管理的状态值，值一旦被修改，所有引用该值的地方就会自动更新
 + state 数据存储
 + getter state的计算属性
@@ -14,30 +19,42 @@ tags:
 + action 异步操作 （逻辑层操作）
 + module 分成一个个模块，方便各个模块的状态管理
 
-
 ## 使用操作
 
 ### 获取定义
+
 方法一：
+
 + vue：this.$store.data1
+
 方法二：
+
 + vue：
+
 ```
 this.$store.getters.addCount1
 ```
-vuex: 
+
+vuex:
+
 ```
 getters:(addCount1(state1){
    return state1.data1+1
 })
 ```
+
 ### 操作vuex的data
+
 方法一：
+
 + vue方法里
+
 ```
 this.$store.commit("add1")
 ```
+
 + vuex:
+
 ```
 mutations:{
     add1(state1){
@@ -45,12 +62,17 @@ mutations:{
     }
 }
 ```
+
 方法二：（官方建议）
+
 + vue方法：
+
 ```
 this.$store.dispatch(addFun)
 ```
+
 + vuex:
+
 ```
 mutations:{
     add1(states){
@@ -61,6 +83,7 @@ actions:addFun(context){
    context.commit('add1')
 }
 ```
+
 注：只有 mutation 能动 State
 
 方法三：
@@ -75,11 +98,14 @@ mutations: {
 ```
 
 **扩展**
+
 + 给vuex的方法传值进去
+
 vue:
 ```
 this.$store.dispatch(addFun,10)
 ```
+
 vuex:
 ```
 mutations:{
@@ -91,9 +117,5 @@ actions:addFun(context,n){
     context.commit('add1',n)
 }
 ```
+
 + 辅助函数 mapState、mapGetters、mapActions
-
-
-
-
-

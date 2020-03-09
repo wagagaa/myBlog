@@ -93,6 +93,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 theme: hexo-theme-PureBlue
+# theme: ayer
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
