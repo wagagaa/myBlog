@@ -113,7 +113,16 @@ git 的常见使用。分支切换、
 ### 参数
 
 + --mixed（默认）：不删除工作空间改动代码，撤销commit，并且撤销git add .
-+ --soft：不删除工作空间改动代码，撤销commit，不撤销git add . 
++ --soft：不删除工作空间改动代码，撤销commit，不撤销git add .
 + --hard：删除工作空间改动代码，撤销commit，撤销git add . 。注意完成这个操作后，就恢复到了上一次的commit状态。
 
 + git commit --amend commit注释写错了，只是想改一下注释。
+
+## 查看git配置
+
++ git config --list # 查看
++ git config --edit # 编辑
+
+## 统计每个人的增删行数
+
++ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done

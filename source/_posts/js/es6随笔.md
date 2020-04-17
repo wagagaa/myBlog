@@ -19,7 +19,7 @@ es6
 + 当 for of执行的时候，循环过程中引擎就会自动调用这个对象上的迭代器方法。
 依次执行迭代器对象的 next 方法,将 next 返回值赋值给 for of 内的变量，从而得到具体的值。
 
-```
+```js
 ar arr=[100,200,300];
 var iteratorObj=  arr[Symbol.iterator]();//得到迭代器方法，返回迭代器对象
 console.log(iteratorObj.next());

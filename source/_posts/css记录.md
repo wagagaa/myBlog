@@ -12,7 +12,7 @@ tags: css
 
 + 单行文本
 
-```
+```css
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
@@ -20,13 +20,13 @@ white-space: nowrap;
 
 + 多行文本
 
-```
+```css
 display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 2;
 ```
 
-```
+```css
 word-break: break-all;
 display: -webkit-box;
 -webkit-box-orient: vertical;
@@ -47,7 +47,7 @@ text-overflow: ellipsis;
 
 + 部分手机不能滑动
 
-```
+```css
   #app::-webkit-scrollbar {
     display: none;
   }
@@ -59,8 +59,34 @@ text-overflow: ellipsis;
 
 + 小程序switch
 
-```
+```css
   .wx-switch-input{
   　　zoom: 0.8 (缩放比例)
   }
+```
+
++ 设置空img的css样式
+
+```css
+
+  img[src=""],img:not([src]){
+      opacity:0;
+  }
+```
+
++ 宽度不自动100%；
+
+```css
+第一种: display:inline-block
+第二种: width:fit-content;
+```
+
++ 小程序不出现滚动轴
+
+```css
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
 ```

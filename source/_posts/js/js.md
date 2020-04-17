@@ -78,3 +78,6 @@ JSON.stringify(o // => "{a:1,b:2,c:3}"
 + 创建对象：您可以看到，person2是基于person1创建的。缺点是比起构造函数，浏览器在更晚的时候才支持create()方法（IE9,  IE8 或甚至以前相比），您只需要一个对象的一些副本， 那么创建一个构造函数可能会让您的代码显得过度繁杂。有些人发现create() 更容易理解和使用。
 
 `var person2 = Object.create(person1);
+
++ js findIndex()方法_返回满足条件的数组下标
++ splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。

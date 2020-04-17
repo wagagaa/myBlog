@@ -100,3 +100,9 @@ brew services start nginx 这个命令启动不了。
   https://www.jianshu.com/p/e0dadb871894
   https://www.jianshu.com/p/3d0a237ea55c
 ```
+
+## 附：另一种解决办法
+
++ chrome插件:Allow CORS: Access-Control-Allow-Origin
+
+安装就能解决本地跨域。不能翻墙的，先去网上安装'谷歌上网助手'或者'谷歌访问助手'
