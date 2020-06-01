@@ -109,6 +109,7 @@ git 的常见使用。分支切换、
 
 + git reset --soft HEAD^ （仅仅是撤回commit操作，您写的代码仍然保留。）
 + HEAD^的意思是上一个版本，也可以写成HEAD\~1。如果你进行了2次commit，想都撤回，可以使用HEAD~2
++ git push -u origin master -f  强制push到远程。origin：远程仓库名  master：分支名称  -f：force，意为强制、强行
 
 ### 参数
 
@@ -126,3 +127,8 @@ git 的常见使用。分支切换、
 ## 统计每个人的增删行数
 
 + git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+
+## 取消某次合并
+
++ git merge --abort #如果Git版本 >= 1.7.4
++ git reset --merge #如果Git版本 >= 1.6.1
