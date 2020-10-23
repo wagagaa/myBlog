@@ -43,7 +43,6 @@ git 的常见使用。分支切换、
 ` git add .`
 ` git commit -m 'update .gitignore'`
 
-
 ## 删除远端分支
 
 `git push :dev`
@@ -118,6 +117,7 @@ git 的常见使用。分支切换、
 + git reset --hard 8dsadad2dsa 这个可以回退到具体的某个版本 
 + HEAD^的意思是上一个版本，也可以写成HEAD\~1。如果你进行了2次commit，想都撤回，可以使用HEAD~2
 + git push -u origin master -f  强制push到远程。origin：远程仓库名  master：分支名称  -f：force，意为强制、强行
++ git reset --hard af42d7ed09 回退到摸个版本
 
 ### 参数
 
