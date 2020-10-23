@@ -175,3 +175,150 @@ this.$router.go(n)
 // /router1?id=123、/router1?id=456 通过this.$route.query.id获取参数id的值。
 // /router1/:id、/router1/123 通过this.$route.params.id来获取
 ```
+
+## 父子组件调用方法
+
+### 父组件调用子组件函数
+
+用法： 子组件上定义ref="refName",  父组件的方法中用 this.$refs.refName.method 去调用子组件方法
+
+子组件
+
+```vue
+<template>
+  <div>
+    childComponent
+  </div>
+</template>
+ 
+<script>
+  export default {
+    name: "child",
+    methods: {
+      childClick(e) {
+        console.log(e)
+      }
+    }
+  }
+</script>
+```
+
+父组件
+
+```vue
+<template>
+  <div>
+    <button @click="parentClick">点击</button>
+    <Child ref="mychild" />   //使用组件标签
+  </div>
+</template>
+ 
+<script>
+  import Child from './child';   //引入子组件Child
+  export default {
+    name: "parent",
+    components: {
+      Child    // 将组件隐射为标签
+    },
+    methods: {
+      parentClick() {
+        this.$refs.mychild.childClick("我是子组件里面的方法哦");  // 调用子组件的方法childClick
+      }
+    }
+  }
+</script>
+```
+
+### 子组件调用父组件函数
+
+1. 第一种方法是直接在子组件中通过this.$parent.event来调用父组件的方法
+2. 第二种方法是在子组件里用$emit向父组件触发一个事件，父组件监听这个事件就行了。
+
+```vue
+// 父组件
+<template>
+  <div>
+    <child @fatherMethod="fatherMethod"></child>
+  </div>
+</template>
+<script>
+  import child from '~/components/dam/child';
+  export default {
+    components: {
+      child
+    },
+    methods: {
+      fatherMethod() {
+        console.log('测试');
+      }
+    }
+  };
+</script>
+```
+
+```vue
+// 子组件
+<template>
+  <div>
+    <button @click="childMethod()">点击</button>
+  </div>
+</template>
+<script>
+  export default {
+    methods: {
+      childMethod() {
+        this.$emit('fatherMethod');
+      }
+    }
+  };
+</script>
+```
+3. 第三种是父组件把方法传入子组件中，在子组件里直接调用这个方法
+
+```vue
+// 父组件
+<template>
+  <div>
+    <child :fatherMethod="fatherMethod"></child>
+  </div>
+</template>
+<script>
+  import child from '~/components/dam/child';
+  export default {
+    components: {
+      child
+    },
+    methods: {
+      fatherMethod() {
+        console.log('测试');
+      }
+    }
+  };
+</script>
+```
+
+```vue
+// 子组件
+<template>
+  <div>
+    <button @click="childMethod()">点击</button>
+  </div>
+</template>
+<script>
+  export default {
+    props: {
+      fatherMethod: {
+        type: Function,
+        default: null
+      }
+    },
+    methods: {
+      childMethod() {
+        if (this.fatherMethod) {
+          this.fatherMethod();
+        }
+      }
+    }
+  };
+</script>
+```

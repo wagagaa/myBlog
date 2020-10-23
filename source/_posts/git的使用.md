@@ -38,6 +38,12 @@ git 的常见使用。分支切换、
 + .gitignore文件未生效（因为后添加的忽略文件需要更新缓存）
 `git config --global credential.helper store`
 
++ .gitignore文件未生效。先把本地缓存删除（改变成未track状态），然后再提交
+` git rm -r --cached .`
+` git add .`
+` git commit -m 'update .gitignore'`
+
+
 ## 删除远端分支
 
 `git push :dev`
@@ -104,10 +110,12 @@ git 的常见使用。分支切换、
 
 + git remote add xxx url  # 添加xxx远程库
 + git remote set-url xxx url  # 修改远程库
++ git remote rm origin # 删除远程库
 
 ## git commit之后，撤销commmit
 
 + git reset --soft HEAD^ （仅仅是撤回commit操作，您写的代码仍然保留。）
++ git reset --hard 8dsadad2dsa 这个可以回退到具体的某个版本 
 + HEAD^的意思是上一个版本，也可以写成HEAD\~1。如果你进行了2次commit，想都撤回，可以使用HEAD~2
 + git push -u origin master -f  强制push到远程。origin：远程仓库名  master：分支名称  -f：force，意为强制、强行
 
@@ -132,3 +140,7 @@ git 的常见使用。分支切换、
 
 + git merge --abort #如果Git版本 >= 1.7.4
 + git reset --merge #如果Git版本 >= 1.6.1
+
+## 将本地所有分支与远程保持同步
+
++  git fetch --all
