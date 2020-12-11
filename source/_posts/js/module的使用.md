@@ -149,7 +149,7 @@ type="module" 也可以使用 async 的方式进行加载(包括其内联的 imp
 
 ### 6.只执行一次
 
-<script type="module"> 只执行一次同ES6的加载机制，多次import 只会被当成一次import处理
+< script type="module"> 只执行一次同ES6的加载机制，多次import 只会被当成一次import处理
 
 ```js
 <!-- 1.js 只会被加载执行一次-->
