@@ -90,3 +90,7 @@ text-overflow: ellipsis;
   color: transparent;
 }
 ```
+
++ 段落空两格
+
+`text-indent: 2em;`

@@ -81,3 +81,25 @@ JSON.stringify(o // => "{a:1,b:2,c:3}"
 
 + js findIndex()方法_返回满足条件的数组下标
 + splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+
+## 删除事件
+
+```js
+// 错误做法
+document.body.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+},false);
+document.body.removeEventListener('touchmove', function (event) {
+    event.preventDefault();
+},false);
+```
+
+```js
+// 正确做法
+// 相同事件绑定和解除，需要使用共用函数;共用函数不能带参数
+function bodyScroll(event){
+    event.preventDefault();
+}
+document.body.addEventListener('touchmove',bodyScroll,false);
+document.body.removeEventListener('touchmove',bodyScroll,false)
+```

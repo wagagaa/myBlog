@@ -31,6 +31,12 @@ mode:'items[index]' 这么替换后就可正常输入
 
 ## nextTick里面的代码会在DOM更新后执行
 
+```js
+this.$nextTick(() => {
+  // 待执行程序
+})
+```
+
 ## 监听
 
 ```js
@@ -322,3 +328,7 @@ this.$router.go(n)
   };
 </script>
 ```
+
+## 引用assets中的图片
+
+`< img :src="school ? school.logo : require('@/assets/logo.png')" class="logo-img" v-if="school&&school.logo"/>`
