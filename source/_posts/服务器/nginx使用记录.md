@@ -24,6 +24,21 @@ tags:
 
 + 3: 更改配置文件
 `sudo vim /usr/local/etc/nginx/nginx.conf`
+    ## 数字化平台的地址
+    server {
+      listen       8094; # 端口号
+      server_name  localhost; # 需要代理的地址
+      autoindex on;
+      location /api/ {
+          proxy_pass http://digitizing.qa.growlib.com;
+#          proxy_pass http://glschool.qa.growlib.com;
+      }
+
+      location / {
+          root /Users/xiaoxiong/Downloads/web/; # 不做拦截后，取本地的文件
+          index index.html; # 默认的请求的文件
+      }
+    }
 
 ## nginx.conf配置信息的填写
 
