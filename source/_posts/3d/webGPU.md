@@ -33,4 +33,4 @@ WebGPU 在娘胎里就设计好了，它有两大功能：绘图和通用计算�
 
 chrome开发者版可使用webGPU
 
-[参考：WebGPU 摘学总目录](https://juejin.cn/post/7010596192606224397)
+参考资料：[WebGPU 摘学总目录](https://juejin.cn/post/7010596192606224397)
