@@ -94,3 +94,7 @@ text-overflow: ellipsis;
 + 段落空两格
 
 `text-indent: 2em;`
+
++ file文件选择的样式
+
+input[type="file"]::file-selector-button

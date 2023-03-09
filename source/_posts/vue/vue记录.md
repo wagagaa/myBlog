@@ -332,3 +332,18 @@ this.$router.go(n)
 ## 引用assets中的图片
 
 `< img :src="school ? school.logo : require('@/assets/logo.png')" class="logo-img" v-if="school&&school.logo"/>`
+
+## 爷孙组件传值和调用方法
+
+```js
+// index.vue 照常-父子传值的父  
+
+//Father.vue:
+<Son v-bind="$attrs" v-on="$listeners"/>
+
+//son.vue 照常-父子传值的子
+
+```
+
++ $attrs是用来将数据从爷组件传递给孙组件的。
++ $listeners是用来从孙组件中触发爷组件中事件的。

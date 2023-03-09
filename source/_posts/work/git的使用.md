@@ -150,7 +150,7 @@ git 的常见使用。分支切换、
 
 + git fetch --all
 
-## 命名规范
+## 分支命名规范
 
 git 分支分为集成分支、功能分支和修复分支，分别命名为 develop、feature 和 hotfix，均为单数。不可使用 features、future、hotfixes、hotfixs 等错误名称。
 
@@ -163,6 +163,16 @@ git 分支分为集成分支、功能分支和修复分支，分别命名为 dev
 + 修补bug（hotfix）分支：软件正式发布以后，难免会出现bug。这时就需要创建一个分支，进行bug修补。修补bug分支是从Master分支上面分出来的。修补结束以后，再合并进Master和Develop分支。它的命名，可以采用hotfix-***的形式。
 
 一个分支尽量开发一个功能模块，不要多个功能模块在一个分支上开发。 feature 分支在申请合并之前，最好是先 pull 一下 develop 主分支下来，看一下有没有冲突，如果有就先解决冲突后再申请合并。
+
+## commit命名规范
+
++ feat：新功能（feature）
++ fix：修补bug
++ docs：文档（documentation）
++ style： 格式（不影响代码运行的变动）
++ refactor：重构（即不是新增功能，也不是修改bug的代码变动）
++ test：增加测试
++ chore：构建过程或辅助工具的变动
 
 ## 关闭忽略大小写
 
