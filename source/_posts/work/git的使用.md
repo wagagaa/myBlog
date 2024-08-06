@@ -119,10 +119,9 @@ git 的常见使用。分支切换、
 ## git commit之后，撤销commmit
 
 + git reset --soft HEAD^ （仅仅是撤回commit操作，您写的代码仍然保留。）
-+ git reset --hard 8dsadad2dsa 这个可以回退到具体的某个版本 
++ git reset --hard 8dsadad2dsa 这个可以回退到具体的某个版本
 + HEAD^的意思是上一个版本，也可以写成HEAD\~1。如果你进行了2次commit，想都撤回，可以使用HEAD~2
-+ git push -u origin master -f  强制push到远程。origin：远程仓库名  master：分支名称  -f：force，意为强制、强行
-+ git reset --hard af42d7ed09 回退到摸个版本
++ git push -u origin master -f  强制push到远程。origin：远程仓库名  master：分支名称  -f：force，意为强制
 
 ### 参数
 
@@ -168,12 +167,34 @@ git 分支分为集成分支、功能分支和修复分支，分别命名为 dev
 
 + feat：新功能（feature）
 + fix：修补bug
++ perf：优化相关，比如提升性能、体验
++ style：格式（不影响代码运行的变动）
 + docs：文档（documentation）
-+ style： 格式（不影响代码运行的变动）
 + refactor：重构（即不是新增功能，也不是修改bug的代码变动）
++ revert：撤销修改
 + test：增加测试
 + chore：构建过程或辅助工具的变动
++ workflow：工作流改进
++ ci：持续集成
++ types：类型定义文件更改
++ wip：开发中
+
+## 修改commit信息
+
++ 修改最近提交的 commit 信息
+`git commit --amend --message="modify message by daodaotest" --author="jiangliheng <jiang_liheng@163.com>"`
+
++ 仅修改 message 信息
+`git commit --amend --message="modify message by daodaotest"`
+
++ 仅修改 author 信息
+`git commit --amend --author="jiangliheng <jiang_liheng@163.com>`
 
 ## 关闭忽略大小写
 
 `git config core.ignorecase false`
+
+## 忽略已跟踪的文件变化
+
++ 配合.gitignore，忽略已跟踪的文件变化
+`git update-index --assume-unchanged file_name`
